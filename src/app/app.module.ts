@@ -10,6 +10,7 @@ import { DetailsComponent } from './details/details.component';
 
 import { WeatherService } from './weather.service'
 import { UiService } from './ui.service';
+import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UiService } from './ui.service';
     HomeComponent,
     WeatherCardComponent,
     AddCardComponent,
-    DetailsComponent
+    DetailsComponent,
+    DarkModeToggleComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   showMenu = false;
   darkModeActive: boolean;
-
+  
   constructor(public ui: UiService) { }
 
   ngOnInit() {
@@ -22,9 +22,5 @@ export class AppComponent implements OnInit {
 
   toggleMenu() {
     this.showMenu = !this.showMenu;
-  }
-
-  modeToggleSwitch() {
-    this.ui.darkModeState.next(!this.darkModeActive)
   }
 }
