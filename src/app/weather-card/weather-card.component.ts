@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../ui.service';
 
 @Component({
   selector: 'app-weather-card',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherCardComponent implements OnInit {
 
-  constructor() { }
+  darkModeActive: boolean;
+
+  constructor(public ui: UiService) { }
 
   ngOnInit() {
+    this.ui.darkModeState.subscribe((value) => {
+      this.darkModeActive = value;
+    })
   }
 
 }
