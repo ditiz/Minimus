@@ -150,8 +150,9 @@
   height: 4rem;
   margin: 0;
   align-items: center;
+  background: #FFF;
   transition: background-color 500ms linear;
-  animation: 1s ease-in-out 0ms 1 fadein;
+  animation: fadein 1s ease-in-out 0ms 1;
 }
 
 .main__header-dark {
@@ -265,14 +266,14 @@
   top: 0;
   left: 0;
   z-index: -2;
-  opacity: 0;
-  background: white;
+  opacity: 1;
+  background: linear-gradient(to top, #5ee7df 0%, #66a6ff 100%);
   transition: opacity 300ms linear;
 }
 
 .main-container__bg-dark {
   opacity: 1;
-  background: linear-gradient(to bottom, #B290FF, #2E1D65);
+  background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   transition: opacity 300ms linear;
 }
 
