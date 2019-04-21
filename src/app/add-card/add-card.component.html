@@ -3,6 +3,12 @@
     <span class="card__title">Add city</span>
   </div>
   <div class="body__container">
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+      <linearGradient id="gradient" x2="0" y2="1">
+        <stop offset="0%" stop-color="#711B86" />
+        <stop offset="100%" stop-color="#00057A" />
+      </linearGradient>
+    </svg>
     <svg class="add__icon">
         <svg class="add__icon" id="Plus_Icon" data-name="Plus Icon" viewBox="1454.4 326.4 209.1 209.1">
           <defs>
@@ -13,7 +19,7 @@
             </style>
             <style *ngIf="darkModeActive">
               .cls-299 {
-                fill: #711B86;
+                fill: url(#gradient) #711B86;
               }
             </style>
             <filter id="Ellipse_7" width="209.1" height="209.1" x="1454.4" y="326.4" filterUnits="userSpaceOnUse">
