@@ -8,6 +8,7 @@ import { UiService } from './ui.service';
 })
 export class AppComponent implements OnInit {
   title = 'Minimus';
+  current_date = 'Today';
 
   showMenu = false;
   darkModeActive: boolean;

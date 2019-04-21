@@ -1,7 +1,9 @@
+
 .toggle-button__container {
   cursor: pointer;
   position: relative;
-  margin: 0 0.5rem;
+  margin: 0 0.75rem 0 0.25rem;
+  display: inline-flex;
 }
 
 .mode-toggle__input {
