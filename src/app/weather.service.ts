@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { api_key_openweathermap as apiKey } from './personal_infos';
 
 @Injectable()
 export class WeatherService {
@@ -10,7 +11,7 @@ export class WeatherService {
   getCityWeatherByName(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<string> {
     const dataSub = new Subject<string>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((data) => {
         dataSub.next(data['weather']);
       }, (err) => {
@@ -23,7 +24,7 @@ export class WeatherService {
     const citiesSubject = new Subject();
     cities.forEach((city) => {
       citiesSubject.next(this.http.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`));
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`));
     });
     return citiesSubject;
   }
@@ -31,7 +32,7 @@ export class WeatherService {
   getWeatherState(city: string): Subject<string> {
     const dataSubject = new Subject<string>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`)
       .subscribe((data) => {
         dataSubject.next(data['weather'][0].main);
       });
@@ -41,7 +42,7 @@ export class WeatherService {
   getCurrentTemp(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<number> {
     const dataSubject = new Subject<number>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         dataSubject.next(Math.round(Number(weather.main.temp)));
       });
@@ -52,7 +53,7 @@ export class WeatherService {
   getCurrentHum(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<number> {
     const dataSubject = new Subject<number>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         console.log(weather);
         dataSubject.next(weather.main.humidity);
@@ -64,7 +65,7 @@ export class WeatherService {
   getCurrentWind(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<number> {
     const dataSubject = new Subject<number>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         dataSubject.next(Math.round(Math.round(weather.wind.speed)));
       });
@@ -76,7 +77,7 @@ export class WeatherService {
     const dataSubject = new Subject<number>();
     let max: number;
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         max = weather.list[0].main.temp;
         weather.list.forEach((value) => {
@@ -93,7 +94,7 @@ export class WeatherService {
     const dataSubject = new Subject<number>();
     let min: number;
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         min = weather.list[0].main.temp;
         weather.list.forEach((value) => {
@@ -109,7 +110,7 @@ export class WeatherService {
   getForecast(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<Array<any>> {
     const dataSubject = new Subject<Array<any>>();
     this.http.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`)
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=${apiKey}`)
       .subscribe((weather: any) => {
         dataSubject.next(weather.list);
       });
