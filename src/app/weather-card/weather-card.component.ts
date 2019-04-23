@@ -10,6 +10,7 @@ import { WeatherService } from '../weather.service';
 export class WeatherCardComponent implements OnInit {
 
   darkModeActive: boolean;
+  city: string;
   temp: number;
   minTemp: number;
   maxTemp: number;
@@ -26,8 +27,9 @@ export class WeatherCardComponent implements OnInit {
     })
 
     this.weather.getCurrentWeather('Grenoble')
-      .subscribe((weather) => {
+      .subscribe((weather: any) => {
         console.log(weather)
+        this.city = weather.name;
         this.temp = Math.round(Number(weather.main.temp));
         this.minTemp = Math.round(Number(weather.main.temp_min));
         this.maxTemp = Math.round(Number(weather.main.temp_max));
