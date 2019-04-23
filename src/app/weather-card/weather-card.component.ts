@@ -11,6 +11,9 @@ export class WeatherCardComponent implements OnInit {
 
   darkModeActive: boolean;
   temp: number;
+  minTemp: number;
+  maxTemp: number;
+  condition: string;
 
   constructor(
     public ui: UiService,
@@ -22,9 +25,13 @@ export class WeatherCardComponent implements OnInit {
       this.darkModeActive = value;
     })
 
-    this.weather.getCurrentTemp('Paris')
-      .subscribe((temp: number) => {
-        this.temp = temp;
+    this.weather.getCurrentWeather('Grenoble')
+      .subscribe((weather) => {
+        console.log(weather)
+        this.temp = Math.round(Number(weather.main.temp));
+        this.minTemp = Math.round(Number(weather.main.temp_min));
+        this.maxTemp = Math.round(Number(weather.main.temp_max));
+        this.condition = weather.weather[0].main;
       });
   }
 
