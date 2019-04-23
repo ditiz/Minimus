@@ -117,4 +117,14 @@ export class WeatherService {
     return dataSubject;
   }
 
+  getCurrentWeather(city: string, metric: 'metric' | 'imperial' = 'metric') {
+    const dataSubject = new Subject();
+    this.http.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${metric}&APPID=${apiKey}`)
+      .subscribe((data) => {
+        dataSubject.next(data);
+      });
+    return dataSubject;
+  }
+
 }
