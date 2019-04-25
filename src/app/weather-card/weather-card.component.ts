@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from '../ui.service';
 import { WeatherService } from '../weather.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-weather-card',
@@ -18,7 +19,8 @@ export class WeatherCardComponent implements OnInit {
 
   constructor(
     public ui: UiService,
-    public weather: WeatherService
+    public weather: WeatherService,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -35,6 +37,10 @@ export class WeatherCardComponent implements OnInit {
         this.maxTemp = Math.round(Number(weather.main.temp_max));
         this.condition = weather.weather[0].main;
       });
+  }
+
+  openDetails() {
+    this.router.navigateByUrl(`details/${this.city}`);
   }
 
 }
