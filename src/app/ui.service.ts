@@ -4,10 +4,11 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class UiService {
 
-  darkModeState: BehaviorSubject<boolean>;
+  darkModeState: BehaviorSubject<boolean>
+  weatherCondition: BehaviorSubject<string>
 
   constructor() {
-    // TODO: if the user is signed in get the default value from Firebase
-    this.darkModeState = new BehaviorSubject<boolean>(true);
+    this.darkModeState = new BehaviorSubject<boolean>(true)
+    this.weatherCondition = new BehaviorSubject<string>('')
   }
 }
