@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.details{
+  background: none;
+  width: 100%;
+}
+
+.box-detail {
+  height: 70vh;
+  width: 70%;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.box-details__dark {
+  background: #2B244D;
+  color: #FFF;
+}
+
+.back__button {
+  position: absolute;
+  top: 50%;
+  left: 2.25rem;
+  width: 5rem;
+  cursor: pointer;
+  z-index: 3;
+}

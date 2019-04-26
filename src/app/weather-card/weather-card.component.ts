@@ -36,6 +36,7 @@ export class WeatherCardComponent implements OnInit {
         this.minTemp = Math.round(Number(weather.main.temp_min));
         this.maxTemp = Math.round(Number(weather.main.temp_max));
         this.condition = weather.weather[0].main;
+        this.ui.weatherCondition.next(this.condition);
       });
   }
 

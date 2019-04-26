@@ -12,6 +12,7 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { DetailsComponent } from './details/details.component';
 import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
+import { IconConditionComponent } from './icon-condition/icon-condition.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.com
     WeatherCardComponent,
     AddCardComponent,
     DetailsComponent,
-    DarkModeToggleComponent
+    DarkModeToggleComponent,
+    IconConditionComponent
   ],
   imports: [
     BrowserModule,
