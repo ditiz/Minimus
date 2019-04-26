@@ -1,0 +1,10 @@
+.weather-icon__container {
+  width: 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-icon__container > svg {
+  width: 10rem;
+}
