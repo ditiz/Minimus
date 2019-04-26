@@ -54,22 +54,34 @@
       
       <div class="up">
 
-        <div class="temp">
-          {{ currentTemp }}<span>°</span>
-        </div>
-        
-        <div class="condition">
-          <span class="weather-icon">
-            <app-icon-condition></app-icon-condition>
-          </span>
-          <span class="condition__text">
-            {{ condition }}
-          </span>
+        <div class="meteo-info">
+          <div class="condition">
+            <span class="weather-icon">
+              <app-icon-condition></app-icon-condition>
+            </span>
+            <span class="condition__text">
+              {{ condition }}
+            </span>
+          </div>
+          <div class='other-info'>
+            <span>
+              <span class="other-info__title">humidity</span> {{ pctHumidity }}%
+            </span>
+            <hr>
+            <span>
+              <span class="other-info__title">wind</span> {{ wind }} km/h
+            </span>
+          </div>
         </div>
 
-        <div class='box-detail__title-container'>
-          <div class="box-detail__title-underline">
-            <h2>{{ city }}</h2>
+        <div class='up-right'>
+          <div class='city-name__container'>
+            <div class="city-name__underline">
+              <h2 class="city-name__text">{{ city }}</h2>
+            </div>
+          </div>
+          <div class="temp">
+            {{ currentTemp }}<span>°</span>
           </div>
         </div>
 
